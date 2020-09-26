@@ -17,11 +17,6 @@ function Students() {
     if (data) {
         return (
             <div>
-                {Students.map(obj=>{
-                    return(
-                    <h1>{obj.Name}</h1>
-                    )
-                })}
             </div>
         );
     }
