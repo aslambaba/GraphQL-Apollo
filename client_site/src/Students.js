@@ -10,13 +10,15 @@ const GetData = gql`
 `;
 function Students() {
     const { loading, error, data } = useQuery(GetData);
-
+    let { Students } = {data};
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
-    const { Students } = data;
+    
     if (data) {
         return (
             <div>
+                {console.log(Object.keys(data))}
+                {console.log(Students)}
             </div>
         );
     }
