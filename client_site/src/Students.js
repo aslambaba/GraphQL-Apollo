@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const GetData = gql`
-  query{
+  query getall{
     Customers{
       Name
     }
@@ -10,18 +10,18 @@ const GetData = gql`
 `;
 function Students() {
     const { loading, error, data } = useQuery(GetData);
-    let { Students } = {data};
+    
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
+
+    console.log(data)
+    const  {Stud}  = data ;
+    console.log(Stud);
+    return (
+      <div>
+      </div>
+    );
     
-    if (data) {
-        return (
-            <div>
-                {console.log(Object.keys(data))}
-                {console.log(Students)}
-            </div>
-        );
-    }
 }
 
 export default Students;
