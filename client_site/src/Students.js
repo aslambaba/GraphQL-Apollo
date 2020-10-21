@@ -5,6 +5,7 @@ const GetData = gql`
   query getall{
     Customers{
       Name
+      Product
     }
   }
 `;
@@ -14,11 +15,20 @@ function Students() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
-    console.log(data)
-    const  {Stud}  = data ;
-    console.log(Stud);
+    let mydata = data.Customers;
     return (
       <div>
+        {
+          mydata.map((student)=>{
+            return(
+              <div key={student.Name}>
+                <h1>{student.Name}</h1>
+                <h1>{student.Product}</h1>
+              </div>
+              
+            )
+          })
+        }
       </div>
     );
     

@@ -17,12 +17,6 @@ const Customers = [
         "Country": 'UK',
     },
 ];
-const resolvers = {
-    Query: {
-        Customers: () => Customers,
-    },
-};
-
 const typeDefs = gql`
   
   type Customer {
@@ -35,6 +29,12 @@ const typeDefs = gql`
     Customers: [Customer]
   }
 `;
+
+const resolvers = {
+  Query: {
+      Customers: () => Customers,
+  },
+};
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({ typeDefs, resolvers });
